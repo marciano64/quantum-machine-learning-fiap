@@ -1,4 +1,23 @@
+# Ambientes Virtuais (Python venv)
+venv/
+.venv/
+env/
+ENV/
+
+# Arquivos de Dados Clássicos
 *.csv
 *.tsv
 *.xls
 *.xlsx
+
+# Temporários do Python e Caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Arquivos do Sistema Operacional
+.DS_Store
+Thumbs.db
