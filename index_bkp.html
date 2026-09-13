@@ -23,10 +23,11 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            min-height: 100vh;
+            overflow: hidden;
+            height: 100vh;
         }
 
-        /* Barra de Progresso (Oculta no mobile para dar espaço) */
+        /* Barra de Progresso */
         .progress-container {
             position: fixed;
             top: 0;
@@ -44,7 +45,7 @@
             transition: width 0.3s ease;
         }
 
-        /* Container de Slides Responsivo */
+        /* Container de Slides */
         .slides-container {
             display: flex;
             width: 500vw;
@@ -65,10 +66,10 @@
 
         h1 {
             color: #fff;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         h1 span {
@@ -77,26 +78,27 @@
 
         h2 {
             color: var(--accent-blue);
-            font-size: 1.5rem;
-            margin-bottom: 25px;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
         }
 
         p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1.6;
             max-width: 800px;
             margin-bottom: 20px;
         }
 
+        /* Lista Bulletada Estilizada */
         .points-list {
             list-style: none;
             text-align: left;
             max-width: 700px;
-            margin: 10px auto;
+            margin: 20px auto;
         }
 
         .points-list li {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 15px;
             position: relative;
             padding-left: 30px;
@@ -114,16 +116,22 @@
             color: #fff;
         }
 
+        /* Imagens */
         .slide-img {
-            max-height: 40vh;
-            max-width: 90%;
-            object-fit: contain;
+            max-height: 45vh;
             border-radius: 12px;
             border: 3px solid var(--card-bg);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-top: 15px;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
         }
 
+        .slide-img:hover {
+            transform: scale(1.02);
+            border-color: var(--fiap-pink);
+        }
+
+        /* Controles Nav */
         .nav-controls {
             position: fixed;
             bottom: 30px;
@@ -148,6 +156,11 @@
         .nav-btn:hover {
             background-color: var(--fiap-pink);
             border-color: var(--fiap-pink);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
         }
 
         .badge-dasa {
@@ -155,41 +168,10 @@
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-weight: bold;
             margin-bottom: 15px;
             display: inline-block;
-        }
-
-        /* 📱 REGRAS ESPECÍFICAS PARA CELULAR (Telas menores que 768px) */
-        @media (max-width: 767px) {
-            body {
-                overflow-y: auto; /* Permite rolar para baixo no celular */
-                overflow-x: hidden;
-            }
-            
-            .progress-container, .nav-controls {
-                display: none !important; /* Esconde controles no mobile */
-            }
-
-            .slides-container {
-                display: block; /* Transforma em lista vertical */
-                width: 100vw;
-                height: auto;
-            }
-
-            .slide {
-                width: 100vw;
-                height: auto;
-                min-height: 100vh;
-                padding: 40px 20px;
-                border-bottom: 2px solid #1f2833; /* Linha sutil separando os slides */
-            }
-
-            h1 { font-size: 1.8rem; }
-            h2 { font-size: 1.2rem; }
-            p, .points-list li { font-size: 1rem; }
-            .slide-img { max-height: 30vh; }
         }
     </style>
 </head>
@@ -201,54 +183,54 @@
 
     <div class="slides-container" id="slidesContainer">
         
-        <!-- SLIDE 1 -->
+        <!-- SLIDE 1: ABERTURA -->
         <div class="slide">
             <div class="badge-dasa">FIAP ENTERPRISE CHALLENGE</div>
             <h1>Cardio<span>IA</span>: Inteligência Artificial na Cardiologia</h1>
             <h2>Otimização de Fluxos Ambulatoriais e Triagem Preditiva para a DASA</h2>
             <p>A jornada do paciente cardíaco e a modelagem estruturada de dados sob a ótica da saúde digital.</p>
-            <img src="inicio.png" alt="Início do Projeto" class="slide-img">
+            <img src="inicio.png" alt="Início do Projeto - Jornada Inicial" class="slide-img">
         </div>
 
-        <!-- SLIDE 2 -->
+        <!-- SLIDE 2: O DESAFIO (DASA) -->
         <div class="slide">
             <h1>O Grande <span>Gargalo</span></h1>
             <h2>O Desafio Prático na Gestão de Exames de Imagem</h2>
             <ul class="points-list">
-                <li><strong>Sobrecarga nos Laboratórios:</strong> Volume massivo de exames cardiológicos aguardando laudo especializado.</li>
+                <li><strong>Sobrecarga nos Laboratórios:</strong> Volume massivo de exames cardiológicos (Ecocardiograma, ECG, Tomografia) aguardando laudo especializado.</li>
                 <li><strong>Fator Tempo-Dependente:</strong> Na cardiologia, minutos salvam vidas. A demora na triagem atrasa intervenções críticas.</li>
-                <li><strong>Dados Não Estruturados:</strong> Imagens complexas demandam ferramentas automatizadas de pré-análise e segmentação.</li>
+                <li><strong>Dados Não Estruturados:</strong> Imagens médicas complexas demandam ferramentas automatizadas de pré-análise e segmentação para apoiar o corpo médico.</li>
             </ul>
         </div>
 
-        <!-- SLIDE 3 -->
+        <!-- SLIDE 3: A SOLUÇÃO (IA & VISÃO COMPUTACIONAL) -->
         <div class="slide">
             <h1>A Solução: <span>Pipeline Inteligente</span></h1>
             <h2>Arquitetura e Processamento do Desafio da Sprint 3</h2>
             <ul class="points-list">
                 <li><strong>Pré-processamento Avançado:</strong> Limpeza, redimensionamento e normalização das imagens médicas do ecocardiograma.</li>
                 <li><strong>Redes Neurais Convolucionais (CNNs):</strong> Extração automatizada de características anatômicas das cavidades cardíacas.</li>
-                <li><strong>Mecanismo de Triagem:</strong> Algoritmo de classificação de criticidade para priorizar exames na fila da DASA.</li>
+                <li><strong>Mecanismo de Triagem:</strong> Algoritmo de classificação de criticidade para priorizar exames com anomalias graves na fila de laudos da DASA.</li>
             </ul>
         </div>
 
-        <!-- SLIDE 4 -->
+        <!-- SLIDE 4: ARQUITETURA REQUISITOS -->
         <div class="slide">
             <h1>Engenharia de <span>Software & IA</span></h1>
             <h2>Entrega Técnica e Métricas Obtidas</h2>
             <ul class="points-list">
-                <li><strong>Arquitetura Limpa:</strong> Separação estrita em camadas garantindo fácil manutenção do sistema.</li>
+                <li><strong>Arquitetura Limpa:</strong> Separação estrita em camadas (Domain, Infrastructure, Application) garantindo fácil manutenção.</li>
                 <li><strong>Mapeamento de Dados:</strong> Integração dinâmica consumindo metadados clínicos consolidados.</li>
                 <li><strong>Otimização de Performance:</strong> Modelo focado em rodar eficientemente e gerar predições em segundos.</li>
             </ul>
         </div>
 
-        <!-- SLIDE 5 -->
+        <!-- SLIDE 5: CONCLUSÃO E FECHAMENTO -->
         <div class="slide">
             <h1>O Futuro da <span>Saúde Digital</span></h1>
             <h2>Impacto, Escalabilidade e Próximos Passos</h2>
             <p>Otimizando o fluxo e navegando rumo à medicina de precisão na DASA: diagnósticos rápidos, assertivos e centrados no paciente.</p>
-            <img src="fim.png" alt="Fim do Projeto" class="slide-img">
+            <img src="fim.png" alt="Fim do Projeto - Jornada Evoluída" class="slide-img">
         </div>
 
     </div>
@@ -265,11 +247,9 @@
         const progressBar = document.getElementById('progressBar');
 
         function updateSlide() {
-            if (window.innerWidth >= 768) {
-                container.style.transform = `translateX(-${currentSlide * 100}vw)`;
-                const progress = ((currentSlide + 1) / totalSlides) * 100;
-                progressBar.style.width = `${progress}%`;
-            }
+            container.style.transform = `translateX(-${currentSlide * 100}vw)`;
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progress}%`;
         }
 
         function moveSlide(direction) {
@@ -279,20 +259,18 @@
             updateSlide();
         }
 
+        // Adiciona controle por setas do teclado
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') moveSlide(1);
-            else if (e.key === 'ArrowLeft') moveSlide(-1);
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth < 768) {
-                container.style.transform = 'none';
-            } else {
-                updateSlide();
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                moveSlide(1);
+            } else if (e.key === 'ArrowLeft') {
+                moveSlide(-1);
             }
         });
 
+        // Inicializa barra de progresso no slide 1
         updateSlide();
     </script>
 </body>
 </html>
+
